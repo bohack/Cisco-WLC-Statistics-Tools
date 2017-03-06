@@ -1,6 +1,6 @@
 ' Bohack
 ' vWLC Putty Log Parser
-' 2/28/17
+' 3/6/17
 
 Option Explicit
 'Check for Arguments
