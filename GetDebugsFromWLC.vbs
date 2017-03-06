@@ -1,6 +1,6 @@
 ' Bohack
 ' vWLC debug collector using send keys
-' 2/28/17
+' 3/6/17
 
 If WScript.Arguments.Count = 0 Then
    Wscript.Echo "Usage: Script.vbs mac-address-list-file"
