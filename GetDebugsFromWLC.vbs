@@ -1,16 +1,24 @@
+' Bohack
+' vWLC debug collector using send keys
+' 2/28/17
+
+If WScript.Arguments.Count = 0 Then
+   Wscript.Echo "Usage: Script.vbs mac-address-list-file"
+   WScript.Quit
+End If
+
 Set WshShell = WScript.CreateObject("WScript.Shell")
 Set fso = CreateObject("Scripting.FileSystemObject")
 
 'total time =  minutes * intervals
 'intervals = total time / minutes
  
-minutes = 3
+minutes = 1
 intervals = 42
 index = 0
-filename = "MacAddressesMW.txt"
+filename = WScript.Arguments(0)
 
 Wscript.Echo "Every " & minutes & " minute(s) for " & intervals & " intervals with total of " & (intervals * minutes) & " minutes"
-
 Wscript.Echo "30 seconds script will invoke config paging disable - Switch to vWLC console now!"
 WScript.Sleep (30*1000)
 WshShell.SendKeys "config paging disable"
