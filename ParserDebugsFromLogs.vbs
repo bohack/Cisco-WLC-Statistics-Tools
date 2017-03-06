@@ -48,7 +48,11 @@ Do Until inf.AtEndOfStream
             macaddr = rtrim(mid(inline, 51, len(inline)-50))
             strSQL = "SELECT company from oui where mac='" & ucase(mid(replace(macaddr,":",""),1,6)) & "'"
             Set rs = Conn.Execute(strSQL)
-            oui = replace(rs.getstring, chr(013),"")
+            IF rs.EOF = true Then
+               oui = "Not Found"
+            Else
+               oui = replace(rs.getstring, chr(013),"")
+            End If 
             Set rs = Nothing
         Case "AP Name.........................................."
             apname = rtrim(mid(inline, 51, len(inline)-50))
