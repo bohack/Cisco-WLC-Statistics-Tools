@@ -1,6 +1,6 @@
 ' Bohack
 ' vWLC Putty Log Parser
-' 3/6/17
+' 3/15/17
 
 Option Explicit
 'Check for Arguments
@@ -43,7 +43,7 @@ Do Until inf.AtEndOfStream
     inline = inf.ReadLine
     Select Case left(inline,49)
         Case "Time............................................."
-            rtime = rtrim(mid(inline, 63, 8))
+            rtime = rtrim(mid(inline, 62, 8))
         Case "Client MAC Address..............................."
             macaddr = rtrim(mid(inline, 51, len(inline)-50))
             strSQL = "SELECT company from oui where mac='" & ucase(mid(replace(macaddr,":",""),1,6)) & "'"
