@@ -38,7 +38,7 @@ Conn.Open "Driver={SQLite3 ODBC Driver};Database=oui.db;StepAPI=;Timeout="
 Set fso = CreateObject("Scripting.FileSystemObject")
 Set inf = fso.OpenTextFile(infile)
 Set outf = fso.OpenTextFile(outfile, fsoForWriting, True)
-outf.WriteLine "Time,Mac Address,OUI,AP Name,AP Radio Slot ID,Client State,Channel,Current Rate,Current Mode,Preamble,IP Address,CCX Capability,E2E Capability,Signal Strength,SNR,Access VLAN"
+               outf.WriteLine "Time,Mac Address,OUI,AP Name,Radio Freq,Client State,Channel,Current Rate,Current Mode,Short Preamble,IP Address,CCX Capability,E2E Capability,Signal Strength,SNR,Access VLAN"
 Do Until inf.AtEndOfStream
     inline = inf.ReadLine
     Select Case left(inline,49)
